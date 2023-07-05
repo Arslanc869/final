@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <body>
+    <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title> </title>
+  </head>
+  <body>
+    <div class="navigation-bar">
+      <nav>
+        <ul class="nav-items">
+          <li><a href="#">Home</a></li>
+          <li><a href="">Registration</a></li>
+          <li><a href="">Records</a></li>
+          <li><a href="">About</a></li>
+          <li class=""><a href="">Name</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="body-cards">
+      <div class="card">
+        <div class="picture">
+          <img src="man.jpg" alt="Picture" />
+        </div>
+        <div class="content">
+          <p>Fri Jun 19 2020 | Category</p>
+          <h2>Post 2 headlines</h2>
+          <p style="margin-bottom: 20px">
+           
+          </p>
+          <a href="">Read More</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="picture">
+          <img src="man.jpg" alt="Picture" />
+        </div>
+        <div class="content">
+          <p>Fri Jun 19 2020 | Category</p>
+          <h2>Post 2 headlines</h2>
+          <p style="margin-bottom: 20px">
+            
+          </p>
+          <a href="">Read More</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="picture">
+          <img src="man.jpg" alt="Picture" />
+        </div>
+        <div class="content">
+          <p>Fri Jun 19 2020 | Category</p>
+          <h2>Post 2 headlines</h2>
+          <p style="margin-bottom: 20px">
+           
+          </p>
+          <a href="">Read More</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="picture">
+          <img src="man.jpg" alt="Picture" />
+        </div>
+        <div class="content">
+          <p>Fri Jun 19 2020 | Category</p>
+          <h2>Post 2 headlines</h2>
+          <p style="margin-bottom: 20px">
+            
+          </p>
+          <a href="">Read More</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="picture">
+          <img src="man.jpg" alt="Picture" />
+        </div>
+        <div class="content">
+          <p>Fri Jun 19 2020 | Category</p>
+          <h2>Post 2 headlines</h2>
+          <p style="margin-bottom: 20px">
+           
+          </p>
+          <a href="">Read More</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="picture">
+          <img src="man.jpg" alt="Picture" />
+        </div>
+        <div class="content">
+          <p>Fri Jun 19 2020 | Category</p>
+          <h2>Post 2 headlines</h2>
+          <p style="margin-bottom: 20px">
+            
+          </p>
+          <a href="">Read More</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="picture">
+          <img src="man.jpg" alt="Picture" />
+        </div>
+        <div class="content">
+          <p>Fri Jun 19 2020 | Category</p>
+          <h2>Post 2 headlines</h2>
+          <p style="margin-bottom: 20px">
+           
+          </p>
+          <a href="">Read More</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="picture">
+          <img src="man.jpg" alt="Picture" />
+        </div>
+        <div class="content">
+          <p>Fri Jun 19 2020 | Category</p>
+          <h2>Post 2 headlines</h2>
+          <p style="margin-bottom: 20px">
+            
+          </p>
+          <a href="">Read More</a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
+    <script>
+      // Function to fetch the API response
+      async function fetchData() {
+        try {
+          const response = await fetch(
+            "https://newsapi.org/v2/everything?q=apple&from=2023-07-04&to=2023-07-04&sortBy=popularity&apiKey=f7d54802ae9d4e2eb6b90d6e456b63ee"
+          );
+          const data = await response.json();
+
+          const cards = document.querySelectorAll(".card");
+
+          for (let i = 0; i < cards.length; i++) {
+            const card = cards[i];
+            const heading = card.querySelector("h2");
+            const image = card.querySelector("img");
+            const description = card.querySelector("p");
+
+            const article = data.articles[i];
+            const articleTitle = article.title;
+            const articleImage = article.urlToImage;
+            const articleDescription = article.description;
+
+            heading.textContent = articleTitle;
+            image.src = articleImage;
+            description.textContent = articleDescription;
+          }
+        } catch (error) {
+          console.log("Error fetching API data:", error);
+        }
+      }
+
+      document.addEventListener("DOMContentLoaded", fetchData);
+    </script>
+  </body>
+</html>
